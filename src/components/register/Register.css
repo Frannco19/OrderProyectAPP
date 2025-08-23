@@ -1,0 +1,10 @@
+
+
+.container{
+    margin: auto;
+    background-color: black;
+    border-radius: 20px;
+    padding: 30px 200px;
+    max-width: 300px;
+}
+
