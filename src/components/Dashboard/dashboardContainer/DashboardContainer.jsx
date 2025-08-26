@@ -3,6 +3,7 @@ import DashboardNav from '../navbarDashboard/Navbar'
 import OrderItem from '../orderItem/OrderItem'
 import "./DashboardContainer.css"
 import { Routes, Route } from "react-router-dom";
+import BranchItem from '../branchItem/branchItem';
 
 const DashboardContainer = () => {
   return (
@@ -18,7 +19,7 @@ const DashboardContainer = () => {
           <Route path="/admin/orders" element={<OrderItem />} />
 
           {/* Ruta Sucursales */}
-          <Route path="/admin/branches" element={<h2>Sucursales</h2>} />
+          <Route path="/admin/branches" element={<BranchItem/>} />
 
           {/* Ruta Menú */}
           <Route path="/admin/menu" element={<h2>Menú</h2>} />

@@ -1,0 +1,40 @@
+.card-container {
+  width: 300px;
+}
+
+.card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cardBackground img {
+  width: 100%;
+  border-radius: 10px;
+  transition: filter 0.5s ease;
+}
+
+.cardBackground img:hover {
+  filter: blur(8px);
+  cursor: pointer;
+}
+
+.card:hover .branchName{
+    transform: translateY(-20px);
+    transition: 0.5s ease;
+}
+
+.branchName {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+}
+
+.branch{
+    border: none;
+    font-size: 100%;
+}
+
