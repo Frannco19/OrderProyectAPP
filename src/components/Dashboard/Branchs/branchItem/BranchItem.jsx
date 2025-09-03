@@ -1,15 +1,15 @@
 import React from "react";
 import "./BranchItem.css";
 
-const BranchItem = () => {
+const BranchItem = ({ name, image }) => {
   return (
     <div className="card-container">
       <div className="card">
         <div className="cardBackground">
-            <img src="../src/assets/RockAndFeller.webp" alt="" />
+          <img src={image} alt={name} />
         </div>
         <div className="branchName">
-          <h2 className="branch">Rock And Fellers - Oroño</h2>
+          <h2 className="branch">{name}</h2>
         </div>
       </div>
     </div>

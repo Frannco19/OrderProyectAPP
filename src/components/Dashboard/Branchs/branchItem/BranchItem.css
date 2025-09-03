@@ -1,5 +1,6 @@
 .card-container {
   width: 300px;
+  cursor: pointer;
 }
 
 .card {
@@ -16,7 +17,6 @@
 
 .cardBackground img:hover {
   filter: blur(8px);
-  cursor: pointer;
 }
 
 .card:hover .branchName{

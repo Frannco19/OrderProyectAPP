@@ -3,7 +3,10 @@ import DashboardNav from '../navbarDashboard/Navbar'
 import OrderItem from '../orderItem/OrderItem'
 import "./DashboardContainer.css"
 import { Routes, Route } from "react-router-dom";
-import BranchItem from '../branchItem/branchItem';
+import BranchItem from '../Branchs/branchItem/BranchItem';
+import BranchContainer from '../Branchs/branchesContainer/branchContainer';
+import EmployeesPage from '../Employees/employeesPage';
+import EmployeeForm from '../Employees/EmployeesForm/EmployeesForm';
 
 const DashboardContainer = () => {
   return (
@@ -13,16 +16,21 @@ const DashboardContainer = () => {
         <h1>Dashboard</h1>
           <Routes>
           {/* Ruta Inicio */}
-          <Route path="/admin" element={<h2>Inicio</h2>} />
+          <Route index element={<h2>Inicio</h2>} />
 
           {/* Ruta Pedidos */}
-          <Route path="/admin/orders" element={<OrderItem />} />
+          <Route path="orders" element={<OrderItem />} />
 
           {/* Ruta Sucursales */}
-          <Route path="/admin/branches" element={<BranchItem/>} />
+          <Route path="branches" element={<BranchContainer/>} />
 
           {/* Ruta Menú */}
-          <Route path="/admin/menu" element={<h2>Menú</h2>} />
+          <Route path="menu" element={<h2>Menú</h2>} />
+
+          <Route path="employees" element={<EmployeesPage />} />
+
+          <Route path="employees/new" element={<EmployeeForm />} />
+
         </Routes>
       </main>
       

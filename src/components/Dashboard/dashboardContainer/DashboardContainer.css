@@ -13,7 +13,7 @@ h1 {
 }
 
 .layout {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1ft);
   min-height: 100vh;
 }

@@ -12,6 +12,10 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  z-index: 10;
+    box-shadow: 10px 17px 40px -15px rgba(0, 0, 0, 0.62);
+  -webkit-box-shadow: 10px 17px 40px -15px rgba(0, 0, 0, 0.62);
+  -moz-box-shadow: 10px 17px 40px -15px rgba(0, 0, 0, 0.62);
 }
 
 .sidebar.open {
