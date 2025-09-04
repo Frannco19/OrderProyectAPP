@@ -1,0 +1,22 @@
+/* Hace visibles las utilidades de Tailwind y tus clases globales */
+@reference '../../../index.css';
+
+/* Layout general: mobile = columna; ≥lg = fila con sidebar fija y contenido flexible */
+.layout {
+  @apply min-h-dvh lg:flex; /* en desktop usamos flex para sidebar + contenido */
+}
+
+/* Sidebar (el <DashboardNav />) ocupa su ancho sin encogerse */
+.sidebar {
+  @apply w-64 shrink-0 hidden lg:block; /* oculto en mobile; mostralo si tu nav es responsive */
+}
+
+/* Área de contenido */
+.content {
+  @apply flex-1 p-6; /* ocupa todo lo restante y agrega padding */
+}
+
+/* Título (opcional) */
+.title {
+  @apply text-2xl font-semibold mb-4;
+}

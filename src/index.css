@@ -1,68 +1,51 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+/* === Tema (tokens) === */
+@theme {
+  --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Paleta brand: define al menos 500 y 600 */
+  --color-brand-50:  oklch(0.98 0.02 260);
+  --color-brand-500: oklch(0.62 0.12 260);
+  --color-brand-600: oklch(0.56 0.12 260);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+/* === Base global === */
+@layer base {
+  html, body, #root {
+    @apply min-h-dvh font-sans bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100;
   }
 }
+
+/* === Componentes globales reutilizables === */
+/* @layer components {
+  .label {
+    @apply block text-sm font-medium mb-1;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-zinc-300 dark:border-zinc-600
+           bg-white dark:bg-zinc-900 px-3 py-2 outline-none
+           focus:ring-2 focus:ring-brand-600 focus:border-transparent;
+  }
+
+  .btn {
+    @apply w-full rounded-lg bg-brand-600 text-white py-2 font-medium
+           hover:bg-brand-500 transition;
+  }
+
+  .muted-link {
+    @apply underline underline-offset-4 decoration-zinc-400 hover:decoration-zinc-600
+           dark:decoration-zinc-500 dark:hover:decoration-zinc-300;
+  }
+
+  .card {
+    @apply bg-white/70 dark:bg-white/5 backdrop-blur
+           border border-zinc-200/60 dark:border-white/10
+           rounded-xl shadow p-6;
+  }
+
+  .title-app {
+    @apply text-3xl font-bold tracking-tight;
+  }
+} */

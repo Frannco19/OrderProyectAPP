@@ -1,0 +1,42 @@
+/* MUY IMPORTANTE: referencia al CSS global que contiene @import "tailwindcss" */
+@reference '../../index.css';
+
+.wrap {
+  @apply min-h-dvh grid place-items-center px-4;
+}
+
+.panel {
+  @apply w-full max-w-sm grid gap-6;
+}
+
+.header {
+  @apply grid gap-1 text-center;
+}
+
+.appName {
+  
+}
+
+.subtitle {
+  @apply text-sm text-zinc-600 dark:text-zinc-400;
+}
+
+.form {
+  @apply grid gap-4;
+}
+
+.row {
+  @apply grid gap-1;
+}
+
+.actions {
+  @apply grid gap-3;
+}
+
+.switch {
+  @apply text-center text-sm;
+}
+
+.error {
+  @apply text-sm text-red-600 dark:text-red-400;
+}
