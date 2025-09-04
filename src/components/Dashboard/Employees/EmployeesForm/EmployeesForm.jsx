@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./EmployeesForm.css";
 
 export default function EmployeeForm({ onSubmit }) {
   const [name, setName] = useState();
@@ -26,6 +27,7 @@ export default function EmployeeForm({ onSubmit }) {
             <input
               type="text"
               value={name} // controlado
+              className="input-form"
               onChange={(e) => setName(e.target.value)}
               required
             />
@@ -36,6 +38,7 @@ export default function EmployeeForm({ onSubmit }) {
             <input
               type="password"
               value={password} // controlado
+              className="input-form"
               onChange={(e) => setPassword(e.target.value)}
               required
             />
@@ -45,6 +48,7 @@ export default function EmployeeForm({ onSubmit }) {
             Rol
             <select
               value={role} // controlado
+              className="input-form"
               onChange={(e) => setRole(e.target.value)}
             >
               <option value="Empleado">Empleado</option>

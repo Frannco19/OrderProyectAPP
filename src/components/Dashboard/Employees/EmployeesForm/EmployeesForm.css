@@ -1,0 +1,8 @@
+.form{
+    display: grid;
+    gap: 20px;
+}
+
+.input-form{
+    margin-left: 5px;
+}

@@ -1,12 +1,16 @@
 import { NavLink } from "react-router-dom";
 
+
 export default function EmployeesPage() {
   return (
     <section>
       <header className="page-header">
         <h2>Empleados</h2>
+         
         <NavLink to="new" className="btn-primary">
+          <button type="submit">
           Nuevo Empleado
+        </button>
         </NavLink>
       </header>
 
@@ -14,7 +18,6 @@ export default function EmployeesPage() {
         <thead>
           <tr>
             <th>Nombre</th>
-            <th>Email</th>
             <th>Rol</th>
             <th style={{ width: 160 }}>Acciones</th>
           </tr>
