@@ -3,86 +3,118 @@ import styles from "./AuthForm.module.css";
 
 function AuthForm({ mode = "login", onSubmit, onSwitch }) {
   const [username, setUsername] = useState("");
-  const [email, setEmail]     = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repassword, setRepassword] = useState("");
   const [error, setError] = useState("");
+
+  const isRegister = mode === "register";
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
 
-    if (mode === "register" && password !== repassword) {
+    if (isRegister && password !== repassword) {
       setError("Las contraseñas no coinciden");
       return;
     }
 
     onSubmit(
-      mode === "login"
-        ? { username, password }
-        : { username, email, password }
+      isRegister ? { username, email, password } : { username, password }
     );
   };
 
   return (
-    <div className={styles.wrap}>
-      <div className={styles.panel}>
-        <header className={styles.header}>
-          <h1 className={styles.appName}>OrderApp</h1>
-          <p className={styles.subtitle}>
-            {mode === "login" ? "Iniciar sesión" : "Crear una cuenta"}
-          </p>
-        </header>
+    <section className={styles.section}>
+      <div className={styles.container}>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          
+          {/* Logo */}
+          <div className={styles.logoWrap}>
+            {/* <img
+              className={styles.logo}
+              src="https://merakiui.com/images/logo.svg"
+              alt="OrderApp"
+            /> */}
+            <h1 className={styles.logo} >OrderApp</h1>
+          </div>
 
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.row}>
-            <label className="label">Usuario</label>
+          {/* Tabs */}
+          <div className={styles.tabs}>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                if (mode !== "login") onSwitch?.();
+              }}
+              className={`${styles.tab} ${!isRegister ? styles.active : ""}`}
+            >
+              Iniciar sesión
+            </a>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                if (mode !== "register") onSwitch?.();
+              }}
+              className={`${styles.tab} ${isRegister ? styles.active : ""}`}
+            >
+              Registrarse
+            </a>
+          </div>
+
+          {/* Usuario */}
+          <div className={styles.field}>
             <input
-              className="input"
               type="text"
+              placeholder="Usuario"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
               autoComplete="username"
+              className={styles.input}
             />
           </div>
 
-          {mode === "register" && (
-            <div className={styles.row}>
-              <label className="label">Email</label>
+          {/* Email (solo registro) */}
+          {isRegister && (
+            <div className={styles.field}>
               <input
-                className="input"
                 type="email"
+                placeholder="Correo electrónico"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 autoComplete="email"
+                className={styles.input}
               />
             </div>
           )}
 
-          <div className={styles.row}>
-            <label className="label">Contraseña</label>
+          {/* Contraseña */}
+          <div className={styles.field}>
             <input
-              className="input"
               type="password"
+              placeholder="Contraseña"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              autoComplete={mode === "login" ? "current-password" : "new-password"}
+              autoComplete={isRegister ? "new-password" : "current-password"}
+              className={styles.input}
             />
           </div>
 
-          {mode === "register" && (
-            <div className={styles.row}>
-              <label className="label">Repetir contraseña</label>
+          {/* Repetir contraseña (solo registro) */}
+          {isRegister && (
+            <div className={styles.field}>
               <input
-                className="input"
                 type="password"
+                placeholder="Repetir contraseña"
                 value={repassword}
                 onChange={(e) => setRepassword(e.target.value)}
                 required
                 autoComplete="new-password"
+                className={styles.input}
               />
             </div>
           )}
@@ -90,27 +122,26 @@ function AuthForm({ mode = "login", onSubmit, onSwitch }) {
           {error && <p className={styles.error}>{error}</p>}
 
           <div className={styles.actions}>
-            <button type="submit" className="btn">
-              {mode === "login" ? "Ingresar" : "Registrarse"}
+            <button type="submit" className={styles.submitBtn}>
+              {isRegister ? "Registrarse" : "Ingresar"}
             </button>
 
-            <p className={styles.switch}>
-              {mode === "login" ? "¿No tienes cuenta?" : "¿Ya tienes una cuenta?"}{" "}
+            <div className={styles.switchRow}>
               <a
                 href="#"
-                className="muted-link"
+                className={styles.switchLink}
                 onClick={(e) => {
                   e.preventDefault();
                   onSwitch?.();
                 }}
               >
-                {mode === "login" ? "Regístrate" : "Inicia sesión"}
+                {isRegister ? "¿Ya tienes una cuenta?" : "¿No tienes cuenta?"}
               </a>
-            </p>
+            </div>
           </div>
         </form>
       </div>
-    </div>
+    </section>
   );
 }
 

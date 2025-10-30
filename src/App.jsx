@@ -38,7 +38,7 @@ export default function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/admin/*" element={<DashboardContainer />} />
         <Route path="/" element={<Navigate to="/login" replace />} />
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        {/* <Route path="*" element={<Navigate to="/login" replace />} /> */}
       </Routes>
     </BrowserRouter>
   );

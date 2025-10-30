@@ -14,9 +14,13 @@
 /* Área de contenido */
 .content {
   @apply flex-1 p-6; /* ocupa todo lo restante y agrega padding */
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Título (opcional) */
 .title {
   @apply text-2xl font-semibold mb-4;
 }
+

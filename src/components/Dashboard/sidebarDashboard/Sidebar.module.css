@@ -1,0 +1,68 @@
+@reference '../../../index.css';
+
+/* contenedor: un poco de padding arriba */
+.sidebar {
+  @apply flex flex-col h-dvh overflow-y-auto
+         bg-white border-r rtl:border-l rtl:border-r-0
+         dark:bg-gray-950 dark:border-gray-700
+         transition-[width] duration-300 ease-in-out
+         shrink-0 pt-3;            /* << sube todo */
+}
+
+/* ancho colapsable */
+.open   { @apply w-[200px]; }
+.closed { @apply w-16; }
+
+/* botón */
+.menu-toggle {
+  @apply self-end me-2 mt-1 mb-2 inline-flex items-center justify-center w-9 h-9
+         rounded-lg border border-black/5 dark:border-white/10
+         bg-black/5 hover:bg-black/10 dark:bg-white/5 dark:hover:bg-white/10
+         focus:outline-none focus:ring-2 focus:ring-brand-600;
+}
+
+/* header de marca (logo/título) */
+.brandTop {
+  @apply flex justify-center items-center mb-4;  /* << menos espacio bajo el logo */
+}
+.brand-img  { @apply h-6 w-auto; }
+.brand-text { @apply text-sm font-semibold tracking-tight text-gray-100; }
+
+/* solo los enlaces: centrados un poco más arriba */
+.nav-links {
+  @apply flex flex-col flex-1 justify-start gap-3 w-full; /* << arranca arriba */
+  @apply mt-2;                                            /* << sube un toque */
+}
+
+/* cada link en fila, icono + texto */
+.link {
+  @apply flex items-center gap-3 px-4 py-2
+         text-gray-300 rounded-lg transition-colors duration-200
+         hover:bg-gray-800 hover:text-white dark:hover:bg-gray-700;
+}
+
+.link-icon { @apply w-6 h-6 shrink-0; }
+
+/* Base del texto: transición suave y que no haga salto de línea */
+.link-text {
+  @apply text-sm whitespace-nowrap
+         transition-all duration-300 ease-in-out;
+}
+
+/* CERRADO: oculto y “corridito” a la derecha */
+.sidebar[data-open="false"] .link-text {
+  @apply opacity-0 translate-x-2 max-w-0 overflow-hidden;
+}
+
+/* ABIERTO: visible, sin desplazamiento y con ancho máximo razonable */
+.sidebar[data-open="true"] .link-text {
+  @apply opacity-100 translate-x-0 max-w-[160px];
+}
+
+/* Opcional: centra los íconos cuando está cerrado */
+.sidebar[data-open="false"] .link { @apply justify-center; }
+.sidebar[data-open="true"]  .link { @apply justify-start; }
+
+/* footer con menos separación del borde */
+.footer { @apply flex items-center justify-center mb-3; }
+.avatar { @apply w-8 h-8 rounded-full object-cover; }
